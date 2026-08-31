@@ -119,7 +119,50 @@ a:hover {
   text-align: center;
 }
 
+/* Keyframe animations for social icons */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(78, 86, 126, 0.4));
+  }
+}
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 img.socialIcon {
   height: 30px;
   width: 30px;
+  animation: float 3s ease-in-out infinite, glow 2.5s ease-in-out infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+img.socialIcon:hover {
+  animation: pulse-scale 0.6s ease-in-out infinite, glow 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(78, 86, 126, 0.6));
+  transform: scale(1.3);
 }
